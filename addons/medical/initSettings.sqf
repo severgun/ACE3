@@ -30,6 +30,15 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(dropWeaponOnUnconscious),
+    "CHECKBOX",
+    [LSTRING(EnableDropWeaponOnUnconscious_DisplayName), LSTRING(EnableDropWeaponOnUnconscious_Description)],
+    LSTRING(Category),
+    false,
+    true
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(spontaneousWakeUpChance),
     "SLIDER",
     [LSTRING(SpontaneousWakeUpChance_DisplayName), LSTRING(SpontaneousWakeUpChance_Description)],
