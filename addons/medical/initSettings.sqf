@@ -31,10 +31,10 @@
 
 [
     QGVAR(dropWeaponOnUnconscious),
-    "CHECKBOX",
+    "SLIDER",
     [LSTRING(EnableDropWeaponOnUnconscious_DisplayName), LSTRING(EnableDropWeaponOnUnconscious_Description)],
     LSTRING(Category),
-    false,
+    [0, 1, 0, 2, true],
     true
 ] call CBA_fnc_addSetting;
 
