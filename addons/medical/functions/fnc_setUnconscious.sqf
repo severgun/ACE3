@@ -49,7 +49,7 @@ if (currentWeapon _unit != primaryWeapon _unit) then {
 if (QGVAR(dropWeaponOnUnconscious)) then {
     if (_unit == ACE_player) then {
         if (_knockOut) then {
-            player call EFUNC(hitreactions,throwWeapon);
+            ACE_player call EFUNC(hitreactions,throwWeapon);
         };
     };
 };
