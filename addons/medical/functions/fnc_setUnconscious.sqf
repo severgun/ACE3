@@ -46,10 +46,10 @@ if (currentWeapon _unit != primaryWeapon _unit) then {
     _unit selectWeapon primaryWeapon _unit;
 };
 
-if (QGVAR(dropWeaponOnUnconscious) != 0) then {
+if (GVAR(dropWeaponOnUnconscious) != 0) then {
     if (_unit == ACE_player) then {
         if (_knockOut) then {
-            if (random 1 <= QGVAR(dropWeaponOnUnconscious)) then {
+            if (random 1 <= GVAR(dropWeaponOnUnconscious)) then {
                 ACE_player call EFUNC(hitreactions,throwWeapon);
             };
         };
