@@ -1,6 +1,5 @@
 #include "script_component.hpp"
 
-GVAR(hardpointGroupsCache) = [] call CBA_fnc_createNamespace;
 GVAR(configTypesAdded) = [];
 ["CBA_settingsInitialized", {
     TRACE_2("settingsInit",GVAR(level),GVAR(supply));
@@ -30,5 +29,5 @@ if (isServer) then {
 [QGVAR(rearmSuccessLocalEH), LINKFUNC(rearmSuccessLocal)] call CBA_fnc_addEventHandler;
 
 
-GVAR(magazineNameCache) = [] call CBA_fnc_createNamespace;
+GVAR(magazineNameCache) = createHashMap;
 GVAR(originalMagazineNames) = [];
