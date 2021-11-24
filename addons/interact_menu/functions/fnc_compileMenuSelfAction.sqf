@@ -21,10 +21,10 @@ private _objectType = _target;
 if (_target isEqualType objNull) then {
     _objectType = typeOf _target;
 };
-private _namespace = GVAR(ActSelfNamespace);
+private _hashMap = GVAR(ActSelfHashMap);
 
 // Exit if the action menu is already compiled for this class
-if (!isNil {_namespace getVariable _objectType}) exitWith {};
+if (!isNil {_hashMap get _objectType}) exitWith {};
 
 
 private _recurseFnc = {
@@ -132,4 +132,4 @@ private _actions = [
         ]
     ];
 
-_namespace setVariable [_objectType, _actions];
+_hashMap set [_objectType, _actions];

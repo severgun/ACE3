@@ -22,8 +22,8 @@ params ["_objectType", "_typeNum", "_fullPath"];
 private _res = _fullPath call FUNC(splitPath);
 _res params ["_parentPath", "_actionName"];
 
-private _namespace = [GVAR(ActNamespace), GVAR(ActSelfNamespace)] select _typeNum;
-private _actionTrees = _namespace getVariable _objectType;
+private _hashMap = [GVAR(ActHashMap), GVAR(ActSelfHashMap)] select _typeNum;
+private _actionTrees = _hashMap get _objectType;
 if (isNil "_actionTrees") then {
     _actionTrees = [];
 };

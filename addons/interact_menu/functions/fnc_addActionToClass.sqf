@@ -55,11 +55,11 @@ if (_typeNum == 0) then {
     [_objectType] call FUNC(compileMenuSelfAction);
 };
 
-private _namespace = [GVAR(ActNamespace), GVAR(ActSelfNamespace)] select _typeNum;
-private _actionTrees = _namespace getVariable _objectType;
+private _hashMap = [GVAR(ActHashMap), GVAR(ActSelfHashMap)] select _typeNum;
+private _actionTrees = _hashMap get _objectType;
 if (isNil "_actionTrees") then {
     _actionTrees = [];
-    _namespace setVariable [_objectType, _actionTrees];
+    _hashMap set [_objectType, _actionTrees];
 };
 
 if (_parentPath isEqualTo ["ACE_MainActions"]) then {

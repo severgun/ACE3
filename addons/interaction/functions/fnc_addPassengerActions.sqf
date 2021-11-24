@@ -20,8 +20,8 @@
 params ["", "", "_parameters"];
 _parameters params ["_unit"];
 
-private _namespace = EGVAR(interact_menu,ActNamespace);
-private _actionTrees = _namespace getVariable typeOf _unit;
+private _hashMap = EGVAR(interact_menu,ActHashMap);
+private _actionTrees = _hashMap get typeOf _unit;
 if (isNil "_actionTrees") then {
     _actionTrees = [];
 };
