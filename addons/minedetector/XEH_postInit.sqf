@@ -1,16 +1,16 @@
 #include "script_component.hpp"
 
 // Create a dictionary to store detector configs
-GVAR(detectorConfigs) = call CBA_fnc_createNamespace;
+GVAR(detectorConfigs) = createHashMap;
 
 // Create a dictionary of detectable classnames
-GVAR(detectableClasses) = call CBA_fnc_createNamespace;
+GVAR(detectableClasses) = createHashMap;
 
 private _detectableClasses = call (uiNamespace getVariable [QGVAR(detectableClasses), {[]}]); //See XEH_preStart.sqf
 {
-    GVAR(detectableClasses) setVariable [_x, true];
+    GVAR(detectableClasses) set [_x, true];
 } forEach _detectableClasses;
-TRACE_1("built cache",count allVariables GVAR(detectableClasses));
+TRACE_1("built cache",count GVAR(detectableClasses));
 
 [QGVAR(enableDetector), FUNC(enableDetector)] call CBA_fnc_addEventHandler;
 [QGVAR(disableDetector), FUNC(disableDetector)] call CBA_fnc_addEventHandler;
