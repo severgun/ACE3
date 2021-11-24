@@ -3,10 +3,10 @@
 
 
 // Cache for static objects
-GVAR(cacheStaticModels) = [false] call CBA_fnc_createNamespace;
+GVAR(cacheStaticModels) = createHashMap;
 private _cacheStaticModels = call (uiNamespace getVariable [QGVAR(cacheStaticModels), {[]}]);
 {
-    GVAR(cacheStaticModels) setVariable [_x, true];
+    GVAR(cacheStaticModels) set [_x, true];
 } forEach _cacheStaticModels;
 
 if (hasInterface) then {
