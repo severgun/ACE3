@@ -49,9 +49,9 @@ private _classID = 0;
 } forEach configProperties [_woundsConfig, "isClass _x"];
 
 // --- parse damage types
-GVAR(allDamageTypesData) = [] call CBA_fnc_createNamespace;
+GVAR(allDamageTypesData) = createHashMap;
 // cache for ammunition -> damageType
-GVAR(damageTypeCache) = [] call CBA_fnc_createNamespace;
+GVAR(damageTypeCache) = createHashMap;
 
 // minimum lethal damage collection, mapped to damageTypes
 private _damageTypesConfig = _injuriesConfigRoot >> "damageTypes";
@@ -76,9 +76,9 @@ private _selectionSpecificDefault = getNumber (_damageTypesConfig >> "selectionS
     private _thresholds = GET_ARRAY(_damageTypeSubClassConfig >> "thresholds",_thresholdsDefault);
     private _selectionSpecific = GET_NUMBER(_damageTypeSubClassConfig >> "selectionSpecific",_selectionSpecificDefault);
 
-    GVAR(allDamageTypesData) setVariable [_className, [_thresholds, _selectionSpecific > 0, _woundTypes]];
-    GVAR(damageTypeCache) setVariable [_className, _className];
-    GVAR(damageTypeCache) setVariable ["#"+_className, _className];
+    GVAR(allDamageTypesData) set [_className, [_thresholds, _selectionSpecific > 0, _woundTypes]];
+    GVAR(damageTypeCache) set [_className, _className];
+    GVAR(damageTypeCache) set ["#"+_className, _className];
 
     /*
     // extension loading

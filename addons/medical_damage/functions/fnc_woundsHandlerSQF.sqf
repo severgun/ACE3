@@ -26,14 +26,14 @@ TRACE_5("woundsHandlerSQF",_unit,_bodyPart,_damage,_typeOfDamage,_damageSelectio
 private _bodyPartN = ALL_BODY_PARTS find toLower _bodyPart;
 if (_bodyPartN < 0) exitWith { ERROR_1("invalid body part %1",_bodyPart); };
 
-if ((_typeOfDamage isEqualTo "") || {isNil {GVAR(allDamageTypesData) getVariable _typeOfDamage}}) then {
+if ((_typeOfDamage isEqualTo "") || {isNil {GVAR(allDamageTypesData) get _typeOfDamage}}) then {
     WARNING_1("damage type [%1] not found",_typeOfDamage);
     _typeOfDamage = "unknown";
 };
 
 // Get the damage type information. Format: [typeDamage thresholds, selectionSpecific, woundTypes]
 // WoundTypes are the available wounds for this damage type. Format [[classID, selections, bleedingRate, pain], ..]
-private _damageTypeInfo = [GVAR(allDamageTypesData) getVariable _typeOfDamage] param [0, [[], false, []]];
+private _damageTypeInfo = [GVAR(allDamageTypesData) get _typeOfDamage] param [0, [[], false, []]];
 _damageTypeInfo params ["_thresholds", "_isSelectionSpecific", "_woundTypes"];
 
 // find the available injuries for this damage type and damage amount
