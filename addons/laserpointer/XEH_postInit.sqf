@@ -8,7 +8,7 @@ if (!hasInterface) exitWith {};
 
 GVAR(nearUnits) = [];
 GVAR(index) = -1;
-GVAR(laserClassesCache) = [] call CBA_fnc_createNamespace;
+GVAR(laserClassesCache) = createHashMap;
 GVAR(redLaserUnits) = [];
 GVAR(greenLaserUnits) = [];
 
@@ -52,11 +52,11 @@ GVAR(greenLaserUnits) = [];
             GVAR(greenLaserUnits) deleteAt (GVAR(greenLaserUnits) find _unit);
         };
 
-        private _laserID = GVAR(laserClassesCache) getVariable _laser;
+        private _laserID = GVAR(laserClassesCache) get _laser;
 
         if (isNil "_laserID") then {
             _laserID = getNumber (configFile >> "CfgWeapons" >> _laser >> "ACE_laserpointer");
-            GVAR(laserClassesCache) setVariable [_laser, _laserID];
+            GVAR(laserClassesCache) set [_laser, _laserID];
         };
         TRACE_3("",_weapon,_laser,_laserID);
 
