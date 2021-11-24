@@ -45,7 +45,7 @@ if (isNil "_keyTable") then {
 
 private _keyCache = uiNamespace getVariable [QGVAR(keyNameCache), nil];
 
-if (isNil _keyCache) then {
+if (isNil "_keyCache") then {
     _keyCache = createHashMap;
     uiNamespace setVariable [QGVAR(keyNameCache), _keyCache];
 };
