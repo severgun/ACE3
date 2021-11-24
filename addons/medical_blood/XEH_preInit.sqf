@@ -9,7 +9,7 @@ PREP_RECOMPILE_END;
 #include "initSettings.sqf"
 
 // blood object model namespace
-GVAR(models) = [] call CBA_fnc_createNamespace;
+GVAR(models) = createHashMap;
 
 {
     _x params ["_name", "_model"];
@@ -19,7 +19,7 @@ GVAR(models) = [] call CBA_fnc_createNamespace;
         _model = _model select [1];
     };
 
-    GVAR(models) setVariable [_name, _model];
+    GVAR(models) set [_name, _model];
 } forEach [
     // higher number means bigger model
     ["blooddrop_1", QPATHTOF(data\ace_drop_1.p3d)],

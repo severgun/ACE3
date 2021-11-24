@@ -31,18 +31,18 @@ if (isNil QUOTE(FATAL_SUM_DAMAGE_WEIBULL_K) || isNil QUOTE(FATAL_SUM_DAMAGE_WEIB
 };
 
 // Cache for armor values of equipped items (vests etc)
-GVAR(armorCache) = false call CBA_fnc_createNamespace;
+GVAR(armorCache) = createHashMap;
 
 // Hack for #3168 (units in static weapons do not take any damage):
 // Doing a manual pre-load with a small distance seems to fix the LOD problems
 // with handle damage not returning full results.
 GVAR(fixedStatics) = [];
 
-GVAR(animations) = [] call CBA_fnc_createNamespace;
-GVAR(animations) setVariable [QUNCON_ANIM(faceUp), [QUNCON_ANIM(2),QUNCON_ANIM(2_1),QUNCON_ANIM(7_1),QUNCON_ANIM(8_1),QUNCON_ANIM(5_1),QUNCON_ANIM(6_1)]];
-GVAR(animations) setVariable [QUNCON_ANIM(faceDown), [QUNCON_ANIM(1),QUNCON_ANIM(3),QUNCON_ANIM(4),"unconscious",QUNCON_ANIM(9),QUNCON_ANIM(3_1),QUNCON_ANIM(4_1)]];
-GVAR(animations) setVariable [QUNCON_ANIM(faceLeft), [QUNCON_ANIM(7),QUNCON_ANIM(8),QUNCON_ANIM(1_1),QUNCON_ANIM(7_1),QUNCON_ANIM(8_1)]];
-GVAR(animations) setVariable [QUNCON_ANIM(faceRight), [QUNCON_ANIM(5),QUNCON_ANIM(6),QUNCON_ANIM(10),QUNCON_ANIM(5_1),QUNCON_ANIM(6_1)]];
+GVAR(animations) = createHashMap;
+GVAR(animations) set [QUNCON_ANIM(faceUp), [QUNCON_ANIM(2),QUNCON_ANIM(2_1),QUNCON_ANIM(7_1),QUNCON_ANIM(8_1),QUNCON_ANIM(5_1),QUNCON_ANIM(6_1)]];
+GVAR(animations) set [QUNCON_ANIM(faceDown), [QUNCON_ANIM(1),QUNCON_ANIM(3),QUNCON_ANIM(4),"unconscious",QUNCON_ANIM(9),QUNCON_ANIM(3_1),QUNCON_ANIM(4_1)]];
+GVAR(animations) set [QUNCON_ANIM(faceLeft), [QUNCON_ANIM(7),QUNCON_ANIM(8),QUNCON_ANIM(1_1),QUNCON_ANIM(7_1),QUNCON_ANIM(8_1)]];
+GVAR(animations) set [QUNCON_ANIM(faceRight), [QUNCON_ANIM(5),QUNCON_ANIM(6),QUNCON_ANIM(10),QUNCON_ANIM(5_1),QUNCON_ANIM(6_1)]];
 
 private _fnc_fixStatic = {
     params ["_vehicle"];

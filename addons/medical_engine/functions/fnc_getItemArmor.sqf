@@ -19,13 +19,13 @@
 params ["_item", "_hitpoint"];
 
 private _key = format ["%1$%2", _item, _hitpoint];
-private _armor = GVAR(armorCache) getVariable _key;
+private _armor = GVAR(armorCache) get _key;
 
 if (isNil "_armor") then {
     TRACE_2("Cache miss",_item,_hitpoint);
     if ("" in [_item, _hitpoint]) exitWith {
         _armor = 0;
-        GVAR(armorCache) setVariable [_key, _armor];
+        GVAR(armorCache) set [_key, _armor];
     };
 
     private _itemInfo = configFile >> "CfgWeapons" >> _item >> "ItemInfo";
@@ -42,7 +42,7 @@ if (isNil "_armor") then {
         _armor = getNumber (_entry >> "armor");
     };
 
-    GVAR(armorCache) setVariable [_key, _armor];
+    GVAR(armorCache) set [_key, _armor];
 };
 
 _armor // return

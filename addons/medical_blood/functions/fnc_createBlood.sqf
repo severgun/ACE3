@@ -20,7 +20,7 @@
 params ["_type", "_position"];
 TRACE_2("Creating blood",_type,_position);
 
-private _model = GVAR(models) getVariable _type;
+private _model = GVAR(models) get _type;
 
 private _bloodDrop = createSimpleObject [_model, [0, 0, 0]];
 _bloodDrop setDir random 360;
