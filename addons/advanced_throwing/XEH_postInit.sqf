@@ -7,11 +7,11 @@
 if (!hasInterface) exitWith {};
 
 // Ammo/Magazines look-up hash for correctness of initSpeed
-GVAR(ammoMagLookup) = call CBA_fnc_createNamespace;
+GVAR(ammoMagLookup) = createHashMap;
 {
     {
         private _ammo = getText (configFile >> "CfgMagazines" >> _x >> "ammo");
-        if (_ammo != "") then { GVAR(ammoMagLookup) setVariable [_ammo, _x]; };
+        if (_ammo != "") then { GVAR(ammoMagLookup) set [_ammo, _x]; };
     } count (getArray (configFile >> "CfgWeapons" >> "Throw" >> _x >> "magazines"));
     nil
 } count getArray (configFile >> "CfgWeapons" >> "Throw" >> "muzzles");
