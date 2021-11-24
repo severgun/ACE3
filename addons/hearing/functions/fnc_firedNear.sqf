@@ -42,7 +42,7 @@ if (_silencer != "") then {
     _audibleFireCoef = getNumber (configFile >> "CfgWeapons" >> _silencer >> "ItemInfo" >> "AmmoCoef" >> "audibleFire");
 };
 
-private _loudness = GVAR(cacheAmmoLoudness) getVariable (format ["%1%2",_weapon,_ammo]);
+private _loudness = GVAR(cacheAmmoLoudness) get (format ["%1%2",_weapon,_ammo]);
 if (isNil "_loudness") then {
     private _muzzles = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");
     private _weaponMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines");
@@ -84,7 +84,7 @@ if (isNil "_loudness") then {
         _loudness = (_caliber ^ 1.25 / 10) * (_initspeed / 1000) / 5;
         TRACE_6("building cache",_weapon,_ammo,_magazine,_initSpeed,_caliber,_loudness);
     };
-    GVAR(cacheAmmoLoudness) setVariable [(format ["%1%2",_weapon,_ammo]), _loudness];
+    GVAR(cacheAmmoLoudness) set [(format ["%1%2",_weapon,_ammo]), _loudness];
 };
 
 _loudness = _loudness * _audibleFireCoef;
