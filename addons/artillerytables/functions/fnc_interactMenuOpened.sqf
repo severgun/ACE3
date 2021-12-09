@@ -19,10 +19,10 @@ params ["_menuType"];
 TRACE_1("interactMenuOpened",_menuType);
 
 if (_menuType != 1) exitWith {};
-if (!("ACE_artilleryTable" in (ace_player call EFUNC(common,uniqueItems)))) exitWith {};
+if (!("ACE_artilleryTable" in (ACE_player call EFUNC(common,uniqueItems)))) exitWith {};
 
-private _vehicleAdded = ace_player getVariable [QGVAR(vehiclesAdded), []];
-private _rangeTablesShown = ace_player getVariable [QGVAR(rangeTablesShown), []];
+private _vehicleAdded = ACE_player getVariable [QGVAR(vehiclesAdded), []];
+private _rangeTablesShown = ACE_player getVariable [QGVAR(rangeTablesShown), []];
 TRACE_2("searching for new vehicles",_vehicleAdded,_rangeTablesShown);
 
 {
@@ -84,7 +84,7 @@ TRACE_2("searching for new vehicles",_vehicleAdded,_rangeTablesShown);
         private _info = [_weapon, _minElev, _maxElev, _advCorrection];
 
         _vehicleAdded pushBack _vehicle;
-        ace_player setVariable [QGVAR(vehiclesAdded), _vehicleAdded];
+        ACE_player setVariable [QGVAR(vehiclesAdded), _vehicleAdded];
 
         private _index = _rangeTablesShown pushBackUnique _info;
         TRACE_2("",_info,_index);
@@ -100,9 +100,9 @@ TRACE_2("searching for new vehicles",_vehicleAdded,_rangeTablesShown);
             };
             private _displayName = format ["%1%2", getText (_vehicleCfg >> "displayName"),["","*"] select _advCorrection];
             private _action = [format ['QGVAR(%1)',_index], _displayName, QPATHTOF(UI\icon_rangeTable.paa), _statement, _condition, {}, _info] call EFUNC(interact_menu,createAction);
-            [ace_player, 1, ["ACE_SelfActions", "ACE_Equipment"], _action] call EFUNC(interact_menu,addActionToObject);
+            [ACE_player, 1, ["ACE_SelfActions", "ACE_Equipment"], _action] call EFUNC(interact_menu,addActionToObject);
             TRACE_1("added action",_displayName);
-            ace_player setVariable [QGVAR(rangeTablesShown), _rangeTablesShown];
+            ACE_player setVariable [QGVAR(rangeTablesShown), _rangeTablesShown];
         };
     };
-} forEach (nearestObjects [ace_player, ["LandVehicle"], 25]);
+} forEach (nearestObjects [ACE_player, ["LandVehicle"], 25]);

@@ -44,7 +44,7 @@ GVAR(objectRotationZ) = 0;
     params ["_side", "_object"];
     TRACE_2("addActionToObject EH",_side,_object);
     if (isNull _object) exitWith {};
-    if (_side isEqualTo side group ace_player) then {
+    if (_side isEqualTo side group ACE_player) then {
         private _budget = [_side] call FUNC(getBudget);
         private _cost = [_side, typeOf _object] call FUNC(getCost);
         private _text = [format ["Remove Object +$%1", _cost], "Remove Object"] select (_budget == -1);

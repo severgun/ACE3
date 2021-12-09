@@ -34,7 +34,7 @@ if ((vehicle ACE_player) != ACE_player) exitWith {};
         [_pfID] call CBA_fnc_removePerFrameHandler;
     } else {
         // Prevent Rare Error when ending mission with interact key down:
-        if (isNull ace_player) exitWith {};
+        if (isNull ACE_player) exitWith {};
 
         //Make the common case fast (cursorTarget is looking at a door):
         if ((!isNull cursorTarget) && {cursorTarget isKindOf "Static"} && {!(cursorTarget in _housesScaned)}) then {
@@ -51,9 +51,9 @@ if ((vehicle ACE_player) != ACE_player) exitWith {};
 
         if (_housesToScanForActions isEqualTo []) then {
             //If player moved >2 meters from last pos, then rescan
-            if (((getPosASL ace_player) distance _setPosition) < 2) exitWith {};
+            if (((getPosASL ACE_player) distance _setPosition) < 2) exitWith {};
 
-            private _nearBuidlings = nearestObjects [ace_player, ["Static"], 30];
+            private _nearBuidlings = nearestObjects [ACE_player, ["Static"], 30];
             {
                 private _typeOfHouse = typeOf _x;
                 if (((count (configFile >> "CfgVehicles" >> _typeOfHouse >> "UserActions")) == 0) && {(count (getArray (configFile >> "CfgVehicles" >> _typeOfHouse >> "ladders"))) == 0}) then {
@@ -64,7 +64,7 @@ if ((vehicle ACE_player) != ACE_player) exitWith {};
                 nil
             } count (_nearBuidlings - _housesScaned);
 
-            _args set [0, (getPosASL ace_player)];
+            _args set [0, (getPosASL ACE_player)];
         } else {
             private _houseBeingScaned = _housesToScanForActions deleteAt 0;
             private _typeOfHouse = typeOf _houseBeingScaned;
@@ -94,4 +94,4 @@ if ((vehicle ACE_player) != ACE_player) exitWith {};
             } forEach _memPoints;
         };
     };
-}, 0, [((getPosASL ace_player) vectorAdd [-100,0,0]), [], [], []]] call CBA_fnc_addPerFrameHandler;
+}, 0, [((getPosASL ACE_player) vectorAdd [-100,0,0]), [], [], []]] call CBA_fnc_addPerFrameHandler;

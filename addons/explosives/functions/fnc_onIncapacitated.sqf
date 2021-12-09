@@ -19,7 +19,7 @@
 params ["_unit"];
 TRACE_1("params",_unit);
 
-if (_unit == ace_player) then {
+if (_unit == ACE_player) then {
     // close cellphone if open
     findDisplay 8855 closeDisplay 0;
 };

@@ -11,7 +11,7 @@
  * Unit can configure the aircraft's pylons <BOOL>
  *
  * Example:
- * [ace_player, cursorObject] call ace_pylons_fnc_canConfigurePylons
+ * [ACE_player, cursorObject] call ace_pylons_fnc_canConfigurePylons
  *
  * Public: No
  */

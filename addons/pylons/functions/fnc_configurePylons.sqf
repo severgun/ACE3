@@ -72,6 +72,6 @@ if (_currentPylon == count _pylonsToConfigure) exitWith {};
         [format [localize LSTRING(Stopped), _currentPylon + 1], false, 5] call EFUNC(common,displayText);
     },
     format [localize LSTRING(ReplacingPylon), _currentPylon + 1, count _pylonsToConfigure],
-    {GVAR(isCurator) || {(ace_player distanceSqr GVAR(currentAircraft)) <= GVAR(searchDistanceSqr)}},
+    {GVAR(isCurator) || {(ACE_player distanceSqr GVAR(currentAircraft)) <= GVAR(searchDistanceSqr)}},
     ["isNotInZeus"]
 ] call EFUNC(common,progressBar);

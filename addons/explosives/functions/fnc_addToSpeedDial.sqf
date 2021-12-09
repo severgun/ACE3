@@ -19,7 +19,7 @@
 params ["_name", "_code"];
 TRACE_2("params",_name,_code);
 
-private _speedDial = ace_player getVariable [QGVAR(SpeedDial), []];
+private _speedDial = ACE_player getVariable [QGVAR(SpeedDial), []];
 private _found = false;
 
 if ((_code) == "") exitWith {
@@ -35,4 +35,4 @@ if (!_found) then {
     _speedDial pushBack _this;
 };
 
-ace_player setVariable [QGVAR(SpeedDial), _speedDial];
+ACE_player setVariable [QGVAR(SpeedDial), _speedDial];

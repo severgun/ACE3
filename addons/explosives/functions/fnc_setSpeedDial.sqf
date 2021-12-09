@@ -16,7 +16,7 @@
  * Public: No
  */
 
-private _speedDial = ace_player getVariable [QGVAR(SpeedDial), []];
+private _speedDial = ACE_player getVariable [QGVAR(SpeedDial), []];
 if (_speedDial isEqualTo []) exitWith {};
 private _amount = [-1, 1] select (_this select 0);
 

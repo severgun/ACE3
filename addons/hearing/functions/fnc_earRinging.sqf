@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 /*
  * Author: KoffeinFlummi, commy2, Rocko, Rommel, Ruthberg
- * Handle new sound souce near ace_player and apply hearing damage
+ * Handle new sound souce near ACE_player and apply hearing damage
  *
  * Arguments:
  * 0: strength of ear ringing <NUMBER>

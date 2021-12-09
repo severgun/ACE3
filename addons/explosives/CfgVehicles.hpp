@@ -22,7 +22,7 @@ class CfgVehicles {
                 };
                 class ACE_Cellphone {
                     displayName = CSTRING(cellphone_displayName);
-                    condition = "('ACE_Cellphone' in (items ace_player))";
+                    condition = "('ACE_Cellphone' in (items ACE_player))";
                     statement = "closeDialog 0;createDialog 'Rsc_ACE_PhoneInterface';";
                     exceptions[] = {"isNotSwimming", "isNotInside", "isNotSitting"};
                     showDisabled = 0;

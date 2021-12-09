@@ -48,8 +48,8 @@ _text = format ["
 ------Player------
 typeOf = %1
 animationState = %2",
-if (isNull ace_player) then {"null"} else {typeOf ace_player},
-if (isNull ace_player) then {"null"} else {animationState ace_player}];
+if (isNull ACE_player) then {"null"} else {typeOf ACE_player},
+if (isNull ACE_player) then {"null"} else {animationState ACE_player}];
 [_text] call _outputText;
 
 

@@ -16,5 +16,5 @@
  */
 
 GVAR(currentAircraft) setVariable [QGVAR(currentUser), objNull, true];
-GVAR(currentAircraftNamespace) setVariable [getPlayerUID ace_player, nil, true]; // Remove var from namespace, no need to keep objNull
+GVAR(currentAircraftNamespace) setVariable [getPlayerUID ACE_player, nil, true]; // Remove var from namespace, no need to keep objNull
 closeDialog 2;

@@ -10,7 +10,7 @@
  * Check if these goggles are diving goggles <BOOL>
  *
  * Example:
- * [goggles ace_player] call ace_goggles_fnc_isDivingGoggles;
+ * [goggles ACE_player] call ace_goggles_fnc_isDivingGoggles;
  *
  * Public: Yes
  */

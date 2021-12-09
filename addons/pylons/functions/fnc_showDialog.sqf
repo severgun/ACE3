@@ -11,7 +11,7 @@
  * None
  *
  * Example:
- * [vehicle ace_player] call ace_pylons_fnc_showDialog
+ * [vehicle ACE_player] call ace_pylons_fnc_showDialog
  *
  * Public: Yes
  */
@@ -34,8 +34,8 @@ private _currentUser = _aircraft getVariable [QGVAR(currentUser), objNull];
 if (!isNull _currentUser) exitWith {
     [format [localize LSTRING(InUse), name _currentUser], false, 5] call EFUNC(common,displayText);
 };
-_aircraft setVariable [QGVAR(currentUser), ace_player, true];
-GVAR(currentAircraftNamespace) setVariable [getPlayerUID ace_player, _aircraft, true];
+_aircraft setVariable [QGVAR(currentUser), ACE_player, true];
+GVAR(currentAircraftNamespace) setVariable [getPlayerUID ACE_player, _aircraft, true];
 
 GVAR(isCurator) = _isCurator;
 GVAR(currentAircraft) = _aircraft;
@@ -157,10 +157,10 @@ _checkbox ctrlAddEventHandler ["CheckedChanged", {[(_this select 1) == 1] call F
 if (!GVAR(isCurator)) then {
     [{
         isNull (GVAR(currentAircraft) getVariable [QGVAR(currentUser), objNull]) ||
-        {(ace_player distanceSqr GVAR(currentAircraft)) > GVAR(searchDistanceSqr)}
+        {(ACE_player distanceSqr GVAR(currentAircraft)) > GVAR(searchDistanceSqr)}
     }, {
-        TRACE_3("disconnect/far",GVAR(currentAircraft),ace_player distance GVAR(currentAircraft),GVAR(currentAircraft) getVariable QGVAR(currentUser));
-        if ((ace_player distanceSqr GVAR(currentAircraft)) > GVAR(searchDistanceSqr)) then {
+        TRACE_3("disconnect/far",GVAR(currentAircraft),ACE_player distance GVAR(currentAircraft),GVAR(currentAircraft) getVariable QGVAR(currentUser));
+        if ((ACE_player distanceSqr GVAR(currentAircraft)) > GVAR(searchDistanceSqr)) then {
             [localize LSTRING(TooFar), false, 5] call EFUNC(common,displayText);
         };
         call FUNC(onButtonClose);

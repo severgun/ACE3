@@ -10,7 +10,7 @@
  * Current weapon is a mine detector <BOOLEAN>
  *
  * Example:
- * [ace_player] call ace_minedetector_fnc_hasDetector
+ * [ACE_player] call ace_minedetector_fnc_hasDetector
  *
  * Public: No
  */

@@ -15,7 +15,7 @@
  * Public: No
  */
 
-// Don't allow if we already are a zeus, intentionally using player instead of ace_player
+// Don't allow if we already are a zeus, intentionally using player instead of ACE_player
  if (!isNull getAssignedCuratorLogic player) exitWith { false };
 
 (isNil QGVAR(zeus)) && {

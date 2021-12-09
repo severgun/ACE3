@@ -23,7 +23,7 @@ Available to Zeus
 
 `ACE_Actions` and `ACE_SelfActions` can be added via config or by calling functions. Be aware that the functions modify the UI, and therefore need to be executed on client-side to take effect.
 
-The simplest action is just a condition and statement. The code to these are passed `[_target, _player, _actionParams]`. `_player` is `ace_player`; `_target` is the object being interacted with; and the 3rd argument is the optional action parameters (default `[]`).
+The simplest action is just a condition and statement. The code to these are passed `[_target, _player, _actionParams]`. `_player` is `ACE_player`; `_target` is the object being interacted with; and the 3rd argument is the optional action parameters (default `[]`).
 
 ## 2. Adding actions via config
 

@@ -11,7 +11,7 @@
  * [isDetected <BOOL>, mine <OBJECT>, distance <NUMBER>] <ARRAY>
  *
  * Example:
- * [ace_player, DETECTOR_CONFIG] call ace_minedetector_fnc_getDetectedObject
+ * [ACE_player, DETECTOR_CONFIG] call ace_minedetector_fnc_getDetectedObject
  *
  * Public: No
  */

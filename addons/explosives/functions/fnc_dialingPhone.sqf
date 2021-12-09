@@ -35,7 +35,7 @@ if (_i >= (count _arr + 2)) then {
         [_unit, -1, [_explosive select 0, _explosive select 2], "ACE_Cellphone"] call FUNC(detonateExplosive);
     };
     _unit setVariable [QGVAR(Dialing), false, true];
-    if (_unit == ace_player) then {
+    if (_unit == ACE_player) then {
         ctrlSetText [1400,"Call Ended!"];
     };
 };

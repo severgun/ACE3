@@ -72,7 +72,7 @@ GVAR(killCount) = 0;
             TRACE_2("using effectiveCommander",_instigator,_killer);
         };
     };
-    private _unitIsPlayer = hasInterface && {_unit in [player, ace_player]}; // isPlayer check will fail at this point
+    private _unitIsPlayer = hasInterface && {_unit in [player, ACE_player]}; // isPlayer check will fail at this point
     private _killerIsPlayer = (!isNull _instigator) && {_unit != _instigator} && {[_instigator] call EFUNC(common,isPlayer)};
     TRACE_2("",_unitIsPlayer,_killerIsPlayer);
 

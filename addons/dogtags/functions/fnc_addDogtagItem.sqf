@@ -20,7 +20,7 @@ params ["_item", "_dogtagData"];
 
 if (_item == "") exitWith {};
 
-[ace_player, _item] call CBA_fnc_addItem;
+[ACE_player, _item] call CBA_fnc_addItem;
 
 _dogtagData params ["_nickName"];
 private _displayText = format [localize LSTRING(takeDogtagSuccess), _nickName];

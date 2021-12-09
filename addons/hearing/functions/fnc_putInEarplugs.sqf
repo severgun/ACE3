@@ -11,7 +11,7 @@
  * None
  *
  * Example:
- * [ace_player, false] call ace_hearing_fnc_putInEarplugs
+ * [ACE_player, false] call ace_hearing_fnc_putInEarplugs
  *
  * Public: No
  */

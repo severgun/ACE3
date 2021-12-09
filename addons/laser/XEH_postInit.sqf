@@ -16,7 +16,7 @@ if (hasInterface) then {
             if (!isNull _seatAI) then {
                 [_seatAI] call FUNC(showVehicleHud);
             } else {
-                [ace_player] call FUNC(showVehicleHud);
+                [ACE_player] call FUNC(showVehicleHud);
             };
         }] call CBA_fnc_addEventHandler;
     }] call CBA_fnc_addEventHandler;

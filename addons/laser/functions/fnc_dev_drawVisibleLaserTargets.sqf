@@ -26,7 +26,7 @@
 //     Blue - Seeker Locks
 
 // Try searching for lasers from a given vehicle position [BLUE]:
-private _seekerVehicle = vehicle ace_player;
+private _seekerVehicle = vehicle ACE_player;
 private _testSeekerPosASL = _seekerVehicle modelToWorldVisualWorld [0,0,1];
 private _testSeekerDir = vectorDirVisual _seekerVehicle;
 {

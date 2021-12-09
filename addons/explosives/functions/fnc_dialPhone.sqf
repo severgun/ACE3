@@ -11,7 +11,7 @@
  * None
  *
  * Example:
- * [ace_player,"2131"] call ACE_explosives_fnc_dialPhone;
+ * [ACE_player,"2131"] call ACE_explosives_fnc_dialPhone;
  *
  * Public: Yes
  */
@@ -28,7 +28,7 @@ private _arr = [];
 for "_i" from 1 to _ran do {
     _arr = _arr + ['.','..','...',''];
 };
-if (_unit == ace_player) then {
+if (_unit == ACE_player) then {
     ctrlSetText [1400,"Calling"];
     [FUNC(dialingPhone), 0.25, [_unit,4,_arr,_code]] call CALLSTACK(CBA_fnc_addPerFrameHandler);
 } else {

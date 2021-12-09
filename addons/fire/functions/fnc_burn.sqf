@@ -128,7 +128,7 @@ if (_isBurning) exitWith {};
     _fireLight setLightBrightness ((_intensity * 3) / 10);
     _lightFlare setLightBrightness (_intensity / 30);
 
-    private _distanceToUnit = (_unit distance ace_player);
+    private _distanceToUnit = (_unit distance ACE_player);
     _fireLight setLightAttenuation [1, 10 max (5 min (10 - _intensity)), 0, 15];
     _lightFlare setLightFlareSize (_intensity * (3 / 4)) * FLARE_SIZE_MODIFIER;
 
@@ -137,10 +137,10 @@ if (_isBurning) exitWith {};
     };
 
     // always keep flare visible to perceiving unit as long as it isnt the player
-    if !(_unit isEqualTo ace_player) then {
+    if !(_unit isEqualTo ACE_player) then {
         private _relativeAttachPoint = [0, 0, 0.3];
         if (_distanceToUnit > 1.5) then {
-            _relativeAttachPoint = (vectorNormalized (_unit worldToModelVisual (getPos ace_player))) vectorMultiply linearConversion [5, 30, _distanceToUnit, 0.5, 1.5];
+            _relativeAttachPoint = (vectorNormalized (_unit worldToModelVisual (getPos ACE_player))) vectorMultiply linearConversion [5, 30, _distanceToUnit, 0.5, 1.5];
             _relativeAttachPoint set [2, 0.3 + ((_unit selectionPosition "pelvis") select 2)];
         };
         _lightFlare attachTo [_unit, _relativeAttachPoint];
@@ -156,24 +156,24 @@ if (_isBurning) exitWith {};
         // propagate fire
         if ((CBA_missionTime - _lastPropogateUpdate) >= BURN_PROPOGATE_UPDATE) then {
             _lastPropogateUpdate = CBA_missionTime;
-            if !([ace_player] call FUNC(isBurning)) then {
-                if ((vehicle _unit) isEqualTo (vehicle ace_player)) then {
+            if !([ACE_player] call FUNC(isBurning)) then {
+                if ((vehicle _unit) isEqualTo (vehicle ACE_player)) then {
                     if (0.5 > random 1) then {
-                        [QGVAR(burn), [ace_player, _intensity * (7 / 8), _instigator]] call CBA_fnc_globalEvent;
+                        [QGVAR(burn), [ACE_player, _intensity * (7 / 8), _instigator]] call CBA_fnc_globalEvent;
                     };
                 } else {
-                    if ((ace_player isKindOf "Man") && { !(_unit isEqualTo ace_player) }) then {
-                        private _burnCounter = ace_player getVariable [QGVAR(burnCounter), 0];
+                    if ((ACE_player isKindOf "Man") && { !(_unit isEqualTo ACE_player) }) then {
+                        private _burnCounter = ACE_player getVariable [QGVAR(burnCounter), 0];
                         if (_distanceToUnit < BURN_PROPOGATE_DISTANCE) then {
                             if (_burnCounter < BURN_PROPOGATE_COUNTER_MAX) then {
                                 _burnCounter = _burnCounter + 1;
                             } else {
-                                [QGVAR(burn), [ace_player, _intensity * (3 / 4), _instigator]] call CBA_fnc_globalEvent;
+                                [QGVAR(burn), [ACE_player, _intensity * (3 / 4), _instigator]] call CBA_fnc_globalEvent;
                             };
                         } else {
                             _burnCounter = 0;
                         };
-                        ace_player setVariable [QGVAR(burnCounter), _burnCounter];
+                        ACE_player setVariable [QGVAR(burnCounter), _burnCounter];
                     };
                 };
             };
@@ -245,7 +245,7 @@ if (_isBurning) exitWith {};
         };
 
         private _burnIndicatorPFH = _unit getVariable [QGVAR(burnUIPFH), -1];
-        if (_unit isEqualTo ace_player && { _isThisUnitAlive } && { _burnIndicatorPFH < 0 }) then {
+        if (_unit isEqualTo ACE_player && { _isThisUnitAlive } && { _burnIndicatorPFH < 0 }) then {
             _burnIndicatorPFH = [FUNC(burnIndicator), 1, _unit] call CBA_fnc_addPerFrameHandler;
             _unit setVariable [QGVAR(burnUIPFH), _burnIndicatorPFH];
         };
@@ -279,8 +279,8 @@ if (_isBurning) exitWith {};
     _lightFlare setLightFlareMaxDistance 100;
     _lightFlare setLightFlareSize 0;
 
-    if !(_unit isEqualTo ace_player) then {
-        private _relativeAttachPoint = (vectorNormalized (_unit worldToModelVisual (getPos ace_player))) vectorMultiply 1;
+    if !(_unit isEqualTo ACE_player) then {
+        private _relativeAttachPoint = (vectorNormalized (_unit worldToModelVisual (getPos ACE_player))) vectorMultiply 1;
         _relativeAttachPoint set [2, 0.5];
         _lightFlare attachTo [_unit, _relativeAttachPoint];
     } else {
@@ -297,7 +297,7 @@ if (_isBurning) exitWith {};
     _unit setVariable [QGVAR(burnUIPFH), -1];
 
     if (local _unit) then {
-        if (_unit isEqualTo ace_player) then {
+        if (_unit isEqualTo ACE_player) then {
             private _burnIndicatorPFH = [FUNC(burnIndicator), 1, _unit] call CBA_fnc_addPerFrameHandler;
             _unit setVariable [QGVAR(burnUIPFH), _burnIndicatorPFH];
         };

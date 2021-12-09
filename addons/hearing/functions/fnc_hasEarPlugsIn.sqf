@@ -10,7 +10,7 @@
  * Have Earplugs in <BOOL>
  *
  * Example:
- * [ace_player] call ace_hearing_fnc_hasEarPlugsIn
+ * [ACE_player] call ace_hearing_fnc_hasEarPlugsIn
  *
  * Public: No
  */

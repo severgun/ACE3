@@ -26,7 +26,7 @@ if ((!GVAR(running))
 ) exitWith {};
 
 private _visibleFireCoef = 1;
-if (_unit == ace_player) then {
+if (_unit == ACE_player) then {
     private _silencer = (_unit weaponAccessories _weapon) select 0;
     if (_silencer != "") then {
         _visibleFireCoef = getNumber (configFile >> "CfgWeapons" >> _silencer >> "ItemInfo" >> "AmmoCoef" >> "visibleFire");

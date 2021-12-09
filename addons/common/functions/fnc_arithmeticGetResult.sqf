@@ -12,7 +12,7 @@
  * Value <NUMBER>
  *
  * Example:
- * [ace_player, "ace_aimCoefficents", "product"] call ace_common_fnc_arithmeticGetResult
+ * [ACE_player, "ace_aimCoefficents", "product"] call ace_common_fnc_arithmeticGetResult
  * [missionNameSpace, "ace_hearing", "min"] call ace_common_fnc_arithmeticGetResult
  *
  * Public: Yes

@@ -10,7 +10,7 @@
  * Whether goggles are visible <BOOL>
  *
  * Example:
- * _visible = [ace_player] call ace_goggles_fnc_isGogglesVisible;
+ * _visible = [ACE_player] call ace_goggles_fnc_isGogglesVisible;
  *
  * Public: Yes
  */

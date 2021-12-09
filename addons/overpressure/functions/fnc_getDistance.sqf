@@ -13,7 +13,7 @@
  * Distance to intersection (999 if distance is greater than max) <NUMBER>
  *
  * Example:
- * [[1823.41,5729.05,6.66627], [-0.953255,0.109689,-0.281554], 15, ace_player] call ace_overpressure_fnc_getDistance
+ * [[1823.41,5729.05,6.66627], [-0.953255,0.109689,-0.281554], 15, ACE_player] call ace_overpressure_fnc_getDistance
  *
  * Public: No
  */

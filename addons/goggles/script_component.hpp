@@ -25,12 +25,12 @@
 #define DUST 1
 #define BROKEN 2
 
-#define GETDIRT (GETGLASSES(ace_player) select DIRT)
-#define GETDUST (GETGLASSES(ace_player) select DUST)
-#define GETBROKEN (GETGLASSES(ace_player) select BROKEN)
-#define GETDUSTT(type) ((GETGLASSES(ace_player) select DUST) select type)
+#define GETDIRT (GETGLASSES(ACE_player) select DIRT)
+#define GETDUST (GETGLASSES(ACE_player) select DUST)
+#define GETBROKEN (GETGLASSES(ACE_player) select BROKEN)
+#define GETDUSTT(type) ((GETGLASSES(ACE_player) select DUST) select type)
 
-#define SETDUST(type,value) (GETGLASSES(ace_player) select DUST) set [type,value]
+#define SETDUST(type,value) (GETGLASSES(ACE_player) select DUST) set [type,value]
 
 #define DACTIVE 0
 #define DTIME 1

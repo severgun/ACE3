@@ -21,7 +21,7 @@
 params ["_receiver", "_giver", "_item"];
 TRACE_3("params",_receiver,_giver,_item);
 
-if ((_receiver != ace_player) && {_giver != ace_player}) exitWith {};
+if ((_receiver != ACE_player) && {_giver != ACE_player}) exitWith {};
 
 private _config = ConfigFile >> "CfgWeapons" >> _item;
 if (isClass _config && {getNumber(_config >> QGVAR(Detonator)) == 1}) then {

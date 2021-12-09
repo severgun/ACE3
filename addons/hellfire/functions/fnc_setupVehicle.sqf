@@ -18,7 +18,7 @@
 
 
 params ["_player"];
-// Note: player may be the currently controlled UAV's AI unit (so may be different from ace_player)
+// Note: player may be the currently controlled UAV's AI unit (so may be different from ACE_player)
 TRACE_1("showHud",_player);
 
 private _enabled = false;

@@ -18,7 +18,7 @@ GVAR(loadoutAction) = [ // create action
             _vehicles findIf {getNumber (_cfgVehicle >> typeOf _x >> "transportAmmo") > 0} != -1;
         };
 
-        (_isRearmVehicle && {[ace_player, _target] call FUNC(canConfigurePylons)})
+        (_isRearmVehicle && {[ACE_player, _target] call FUNC(canConfigurePylons)})
     }
 ] call EFUNC(interact_menu,createAction);
 

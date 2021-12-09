@@ -13,7 +13,7 @@
  * None
  *
  * Example:
- * [ace_player, goggles ace_player] call ace_goggles_fnc_applyGlassesEffect
+ * [ACE_player, goggles ACE_player] call ace_goggles_fnc_applyGlassesEffect
  *
  * Public: No
  */

@@ -10,7 +10,7 @@
  * Turret Index <ARRAY>
  *
  * Example:
- * [ace_player] call ace_common_fnc_getTurretIndex
+ * [ACE_player] call ace_common_fnc_getTurretIndex
  *
  * Public: Yes
  */
