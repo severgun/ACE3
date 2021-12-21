@@ -428,70 +428,70 @@ class CfgVehicles {
             };
         };
         // ENABLE_CSW_ATTRIBUTE;
-        class ACE_CSW {
-            enabled = 1;
-            magazineLocation = "";
-            proxyWeapon = QGVAR(rhs_mortar_81mm);
-            disassembleWeapon = QGVAR(m252_carry); // carry weapon [CfgWeapons]
-            disassembleTurret = QEGVAR(csw,mortarBaseplate); // turret [CfgVehicles]
-            desiredAmmo = 1;
-            ammoLoadTime = 3;
-            ammoUnloadTime = 3;
-        };
+        // class ACE_CSW {
+        //     enabled = 1;
+        //     magazineLocation = "";
+        //     proxyWeapon = QGVAR(rhs_mortar_81mm);
+        //     disassembleWeapon = QGVAR(m252_carry); // carry weapon [CfgWeapons]
+        //     disassembleTurret = QEGVAR(csw,mortarBaseplate); // turret [CfgVehicles]
+        //     desiredAmmo = 1;
+        //     ammoLoadTime = 3;
+        //     ammoUnloadTime = 3;
+        // };
     };
 
-    class StaticMGWeapon: StaticWeapon {};
+    // class StaticMGWeapon: StaticWeapon {};
 
-    class rhs_m2staticmg_base: StaticMGWeapon {
-        // ENABLE_CSW_ATTRIBUTE;
-        class ACE_CSW {
-            enabled = 1;
-            proxyWeapon = QGVAR(rhs_M2);
-            magazineLocation = "_target selectionPosition 'magazine'";
-            disassembleWeapon = QGVAR(m2_carry);
-            disassembleTurret = QEGVAR(csw,m3Tripod);
-            desiredAmmo = 100;
-            ammoLoadTime = 10;
-            ammoUnloadTime = 8;
-        };
-    };
+    // class rhs_m2staticmg_base: StaticMGWeapon {
+    //     // ENABLE_CSW_ATTRIBUTE;
+    //     class ACE_CSW {
+    //         enabled = 1;
+    //         proxyWeapon = QGVAR(rhs_M2);
+    //         magazineLocation = "_target selectionPosition 'magazine'";
+    //         disassembleWeapon = QGVAR(m2_carry);
+    //         disassembleTurret = QEGVAR(csw,m3Tripod);
+    //         desiredAmmo = 100;
+    //         ammoLoadTime = 10;
+    //         ammoUnloadTime = 8;
+    //     };
+    // };
 
-    class RHS_M2StaticMG_MiniTripod_base: rhs_m2staticmg_base {
-        class ACE_CSW: ACE_CSW {
-            enabled = 1;
-            disassembleTurret = QEGVAR(csw,m3TripodLow);
-        };
-    };
+    // class RHS_M2StaticMG_MiniTripod_base: rhs_m2staticmg_base {
+    //     class ACE_CSW: ACE_CSW {
+    //         enabled = 1;
+    //         disassembleTurret = QEGVAR(csw,m3TripodLow);
+    //     };
+    // };
 
-    class StaticGrenadeLauncher: StaticWeapon {};
-    class RHS_MK19_TriPod_base: StaticGrenadeLauncher {
-        // ENABLE_CSW_ATTRIBUTE;
-        class ACE_CSW {
-            enabled = 1;
-            proxyWeapon = QGVAR(rhs_MK19);
-            magazineLocation = "_target selectionPosition 'magazine'";
-            disassembleWeapon = QGVAR(mk19_carry);
-            disassembleTurret = QEGVAR(csw,m3TripodLow);
-            desiredAmmo = 48;
-            ammoLoadTime = 10;
-            ammoUnloadTime = 8;
-        };
-    };
+    // class StaticGrenadeLauncher: StaticWeapon {};
+    // class RHS_MK19_TriPod_base: StaticGrenadeLauncher {
+    //     // ENABLE_CSW_ATTRIBUTE;
+    //     class ACE_CSW {
+    //         enabled = 1;
+    //         proxyWeapon = QGVAR(rhs_MK19);
+    //         magazineLocation = "_target selectionPosition 'magazine'";
+    //         disassembleWeapon = QGVAR(mk19_carry);
+    //         disassembleTurret = QEGVAR(csw,m3TripodLow);
+    //         desiredAmmo = 48;
+    //         ammoLoadTime = 10;
+    //         ammoUnloadTime = 8;
+    //     };
+    // };
 
-    class StaticATWeapon: StaticWeapon {};
-    class RHS_TOW_TriPod_base: StaticATWeapon {
-        // ENABLE_CSW_ATTRIBUTE;
-        class ACE_CSW {
-            enabled = 1;
-            proxyWeapon = QGVAR(rhs_weap_TOW_Launcher_static);
-            magazineLocation = "_target selectionPosition 'tube'";
-            disassembleWeapon = QGVAR(tow_carry);
-            disassembleTurret = QEGVAR(csw,m220Tripod);
-            desiredAmmo = 1;
-            ammoLoadTime = 8;
-            ammoUnloadTime = 5;
-        };
-    };
+    // class StaticATWeapon: StaticWeapon {};
+    // class RHS_TOW_TriPod_base: StaticATWeapon {
+    //     // ENABLE_CSW_ATTRIBUTE;
+    //     class ACE_CSW {
+    //         enabled = 1;
+    //         proxyWeapon = QGVAR(rhs_weap_TOW_Launcher_static);
+    //         magazineLocation = "_target selectionPosition 'tube'";
+    //         disassembleWeapon = QGVAR(tow_carry);
+    //         disassembleTurret = QEGVAR(csw,m220Tripod);
+    //         desiredAmmo = 1;
+    //         ammoLoadTime = 8;
+    //         ammoUnloadTime = 5;
+    //     };
+    // };
 
     class rhsusf_infantry_usmc_base;
     class rhsusf_usmc_marpat_wd_helipilot: rhsusf_infantry_usmc_base {
