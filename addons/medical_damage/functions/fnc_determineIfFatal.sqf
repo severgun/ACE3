@@ -43,14 +43,21 @@ if (EGVAR(medical,fatalDamageSource) in [1, 2]) then {
     private _headThreshhold = 1.25 * _damageThreshold;
     private _bodyThreshhold = 1.5 * _damageThreshold;
 
-    _bodyPartDamage params ["_headDamage", "_bodyDamage"];
+    // WOG Tweaks. Limbs sum damage can cause death
+    _bodyPartDamage params ["_headDamage", "_bodyDamage", "_leftArmDamage", "_rightArmDamage", "_leftLegDamage", "_rightLegDamage"];
 
     private _vitalDamage = ((_headDamage - _headThreshhold) max 0) + ((_bodyDamage - _bodyThreshhold) max 0);
     private _chanceFatal = 1 - exp -((_vitalDamage/FATAL_SUM_DAMAGE_WEIBULL_L)^FATAL_SUM_DAMAGE_WEIBULL_K);
-    TRACE_3("",_bodyPartDamage,_vitalDamage,_chanceFatal);
+    private _limbsSumDamage = _leftArmDamage + _rightArmDamage + _leftLegDamage + _rightLegDamage;
+    TRACE_4("",_bodyPartDamage,_vitalDamage,_chanceFatal,_limbsSumDamage);
 
     if (_chanceFatal > random 1) exitWith {
         TRACE_1("determineIfFatal: lethal trauma",_woundDamage);
+        true breakOut "main";
+    };
+
+    if (_limbsSumDamage > 5) exitWith {
+        TRACE_5("determineIfFatal: lethal limb trauma",_limbsSumDamage,_leftArmDamage,_rightArmDamage,_leftLegDamage,_rightLegDamage);
         true breakOut "main";
     };
 };
