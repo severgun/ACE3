@@ -35,13 +35,13 @@ _magazine params ["_magazineClassname", "_amountOfMagazines"];
 if (_amountOfMagazines > 0) exitWith {
     private _removed = _amountOfMagazines min floor(1 + random(6 / GVAR(ammoCookoffDuration)));
 
-    _amountOfMagazines = _amountOfMagazines - _removed;
+    _amountOfMagazines = _amountOfMagazines - _removed - _amountOfMagazines / 3; // WOG fix
     if (_amountOfMagazines <= 0) then {
         _magazines deleteAt _magazineIndex;
     } else {
         _magazine set [1, _amountOfMagazines]; // clear out the magazine
     };
-    private _timeBetweenAmmoDetonation = (((random 10) / (sqrt _totalAmmo)) min MAX_TIME_BETWEEN_AMMO_DET) max 0.1;
+    private _timeBetweenAmmoDetonation = (((random 10) / (sqrt _totalAmmo)) min MAX_TIME_BETWEEN_AMMO_DET) max 0.3; // WOG fix
     TRACE_2("",_totalAmmo,_timeBetweenAmmoDetonation);
     _totalAmmo = _totalAmmo - _removed;
 
