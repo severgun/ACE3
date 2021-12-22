@@ -8,6 +8,7 @@
  * 1: Turret Path <ARRAY>
  * 2: Carryable Magazine <STRING>
  * 3: Player <OBJECT>
+ * 4: Ammo source container <OBJECT>
  *
  * Return Value:
  * [CanLoad<BOOL>, LoadedMag<STRING>, AmmoNeeded<NUMBER>, IsBeltLinking<BOOL>]<ARRAY>
@@ -18,13 +19,14 @@
  * Public: No
  */
 
-params ["_vehicle", "_turret", "_carryMag", ["_unit", objNull]];
-// TRACE_4("reload_canLoadMagazine",_vehicle,_turret,_carryMag,_unit);
+params ["_vehicle", "_turret", "_carryMag", ["_unit", objNull], ["_container", objNull]];
+// TRACE_5("reload_canLoadMagazine",_vehicle,_turret,_carryMag,_unit,_container);
 
 // Handle disassembled or deleted
 if (!alive _vehicle) exitWith { [false, "", -1, false] };
 // Verify unit has carry magazine
-if ((!isNull _unit) && {((_vehicle distance _unit) > 5) || {((magazines _unit) findIf {_x == _carryMag}) == -1}}) exitWith { [false, "", -2, false] };
+private _magazinesCargo = (magazines _unit) + (magazineCargo _container);
+if ((!isNull _unit) && (!isNull _container) && {((_vehicle distance _unit) > 6) || {(_magazinesCargo findIf {_x == _carryMag}) == -1}}) exitWith { [false, "", -2, false] };
 
 private _desiredAmmo = getNumber (configOf _vehicle >> QUOTE(ADDON) >> "desiredAmmo");
 if (_desiredAmmo == 0) then { _desiredAmmo = 100; };

@@ -9,7 +9,7 @@
  *
  * Return Value:
  * Mags <ARRAY>
- * [Carry Magazine <STRING>, Turret Path <ARRAY>, Ammo Needed <NUMBER>]
+ * [Carry Magazine <STRING>, Turret Path <ARRAY>, Ammo Needed <NUMBER>, Source container <OBJECT>]
  *
  * Example:
  * [cursorObject, player] call ace_csw_fnc_reload_getLoadableMagazines
@@ -20,12 +20,34 @@
 params ["_vehicle", "_player"];
 
 private _carriedMagazines = [];
+private _magazinesCargo = [];
 
 {
     if (isClass (configFile >> QGVAR(groups) >> _x)) then {
-        _carriedMagazines pushBackUnique _x;
+        _carriedMagazines pushBackUnique [_x, _player];
     };
 } forEach (magazines _player);
+
+if (_vehicle isKindOf "StaticWeapon") then {
+    {
+        _x params ["_container"];
+        {
+            if (isClass (configFile >> QGVAR(groups) >> _x)) then {
+                _magazinesCargo pushBackUnique [_x, _container];
+            };
+        } forEach (magazineCargo _container);
+    } forEach (nearestObjects [_vehicle, ["groundWeaponHolder"], 4]);
+} else {
+    {
+        if (isClass (configFile >> QGVAR(groups) >> _x)) then {
+            _magazinesCargo pushBackUnique [_x, _vehicle];
+        };
+    } forEach (magazineCargo _vehicle);
+};
+
+TRACE_2("All available magazines:",_carriedMagazines,_magazinesCargo);
+
+_carriedMagazines = _carriedMagazines + _magazinesCargo;
 
 if (_carriedMagazines isEqualTo []) exitWith { [] }; // fast exit if no carry mags
 
@@ -37,11 +59,11 @@ private _return = [];
     {
         private _weapon = _x;
         {
-            private _carryMag = _x;
+            _x params ["_carryMag", "_container"];
             private _carryGroup = configFile >> QGVAR(groups) >> _carryMag;
             {
-                if (((getNumber (_carryGroup >> _x)) == 1) && {_loadInfo = [_vehicle, _turretPath, _carryMag, _player] call FUNC(reload_canLoadMagazine); _loadInfo select 0}) exitWith {
-                    _return pushBack [_carryMag, _turretPath, _loadInfo];
+                if (((getNumber (_carryGroup >> _x)) == 1) && {_loadInfo = [_vehicle, _turretPath, _carryMag, _player, _container] call FUNC(reload_canLoadMagazine); _loadInfo select 0}) exitWith {
+                    _return pushBack [_carryMag, _turretPath, _loadInfo, _container];
                 };
             } forEach ([_weapon] call CBA_fnc_compatibleMagazines);
         } forEach _carriedMagazines;

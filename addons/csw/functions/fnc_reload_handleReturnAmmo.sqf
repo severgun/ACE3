@@ -24,13 +24,22 @@ private _carryMaxAmmo = getNumber (configFile >> "CfgMagazines" >> _carryMag >> 
 private _fullMagazines = floor (_ammo / _carryMaxAmmo);
 private _bulletsRemaining = _ammo % _carryMaxAmmo;
 
-if (_unloadTo isKindOf "CaManBase") then {
-    while {(_fullMagazines > 0) && {[_unloadTo, _carryMag] call CBA_fnc_canAddItem}} do {
+if ((_unloadTo isKindOf "CaManBase")&& (vehicle _unloadTo == _unloadTo)) then {
+    while {(_fullMagazines > 0) && {_unloadTo canAdd _carryMag}} do {
         _unloadTo addMagazine [_carryMag, _carryMaxAmmo];
         _fullMagazines = _fullMagazines - 1;
     };
-    if ((_bulletsRemaining > 0) && {[_unloadTo, _carryMag] call CBA_fnc_canAddItem}) then {
+    if ((_bulletsRemaining > 0) && {_unloadTo canAdd _carryMag}) then {
         _unloadTo addMagazine [_carryMag, _bulletsRemaining];
+        _bulletsRemaining = 0;
+    };
+} else {
+    while {(_fullMagazines > 0) && {vehicle _unloadTo canAdd _carryMag}} do { // ??? canAdd test on overloaded vehicle
+        vehicle _unloadTo addMagazineAmmoCargo [_carryMag, 1, _carryMaxAmmo];
+        _fullMagazines = _fullMagazines - 1;
+    };
+    if (_bulletsRemaining > 0 && {vehicle _unloadTo canAdd _carryMag}) then {
+        vehicle _unloadTo addMagazineAmmoCargo [_carryMag, 1, _bulletsRemaining];
         _bulletsRemaining = 0;
     };
 };

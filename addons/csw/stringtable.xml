@@ -302,6 +302,14 @@
             <Spanish>Ensamblando arma...</Spanish>
             <Russian>Сборка оружия...</Russian>
         </Key>
+        <Key ID="STR_ACE_CSW_LoadingAmmo_progressBar">
+            <English>Loading Ammo...</English>
+            <Russian>Загружаю боеприпасы...</Russian>
+        </Key>
+        <Key ID="STR_ACE_CSW_UnloadingAmmo_progressBar">
+            <English>Unloading Ammo...</English>
+            <Russian>Выгружаю боеприпасы...</Russian>
+        </Key>
         <Key ID="STR_ACE_CSW_PickupTripod_progressBar">
             <English>Picking Up Tripod...</English>
             <German>Nehme Dreibein auf...</German>

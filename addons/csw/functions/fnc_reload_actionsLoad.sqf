@@ -23,20 +23,20 @@ private _loadableMagazines = [_vehicle, _player] call FUNC(reload_getLoadableMag
 
 private _statement = {
     params ["_target", "_player", "_params"];
-    _params params ["_carryMag", "_turretPath"];
+    _params params ["_carryMag", "_turretPath", "", "_container"];
 
-    [_target, _turretPath, _carryMag, _player] call FUNC(reload_loadMagazine);
+    [_target, _turretPath, _carryMag, _player, _container] call FUNC(reload_loadMagazine);
 };
 
 private _condition = {
     params ["_target", "_player", "_params"];
-    _params params ["_carryMag", "_turretPath"];
+    _params params ["_carryMag", "_turretPath", "", "_container"];
 
-    ([_target, _turretPath, _carryMag, _player] call FUNC(reload_canLoadMagazine)) select 0
+    ([_target, _turretPath, _carryMag, _player, _container] call FUNC(reload_canLoadMagazine)) select 0
 };
 
 {
-    _x params ["_carryMag", "_turretPath", "_loadInfo"];
+    _x params ["_carryMag", "_turretPath", "_loadInfo", "_container"];
     _loadInfo params ["", "", "", "_isBeltLinking"];
 
     private _displayName = getText (configFile >> "CfgMagazines" >> _carryMag >> "displayName");

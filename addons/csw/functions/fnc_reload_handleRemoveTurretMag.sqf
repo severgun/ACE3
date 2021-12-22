@@ -76,4 +76,8 @@ if ((_magsInWeapon isEqualTo []) && {_ammoInFirstMag > _ammoRemoved}) then {
 };
 
 TRACE_3("Returning ammo",_unit,_carryMag,_ammoRemoved);
-[QGVAR(returnAmmo), [_unit, _carryMag, _ammoRemoved], _unit] call CBA_fnc_targetEvent;
+if (!(_vehicle isKindOf "StaticWeapon")) then {
+    [QGVAR(returnAmmo), [_vehicle, _carryMag, _ammoRemoved], _vehicle] call CBA_fnc_targetEvent; // ??? Test locality
+} else {
+    [QGVAR(returnAmmo), [_unit, _carryMag, _ammoRemoved], _unit] call CBA_fnc_targetEvent;
+};
