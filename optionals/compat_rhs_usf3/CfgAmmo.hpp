@@ -307,12 +307,28 @@ class CfgAmmo {
     };
     class RocketBase;
     class rhs_ammo_maaws_HEDP: RocketBase {
+        ace_frag_enabled = 1;
+        ace_frag_metal = 330;
+        ace_frag_charge = 280;
+        ace_frag_gurney_c = 2800;
+        ace_frag_gurney_k = "3/5";
+        ace_frag_classes[] = {"ACE_frag_medium_HD"};
+        ace_frag_skip = 0;
+        ace_frag_force = 1;
         EGVAR(vehicle_damage,incendiary) = 0.8;
     };
     class rhs_ammo_maaws_HEDP_penetrator: rhs_ammo_M136_penetrator {
         EGVAR(vehicle_damage,incendiary) = 0.8;
     };
     class rhs_ammo_maaws_HE: RocketBase {
+        ace_frag_enabled = 1;
+        ace_frag_metal = 2300;
+        ace_frag_charge = 590;
+        ace_frag_gurney_c = 2800;
+        ace_frag_gurney_k = "1/2";
+        ace_frag_classes[] = {"ACE_frag_medium_HD"};
+        ace_frag_skip = 0;
+        ace_frag_force = 1;
         EGVAR(vehicle_damage,incendiary) = 0.5;
     };
     class rhs_ammo_maaws_SMOKE: RocketBase {
@@ -425,28 +441,7 @@ class CfgAmmo {
         ace_frag_classes[] = {"ACE_frag_medium_HD"};
         ace_frag_skip = 0;
         ace_frag_force = 1;
-    };
-    class rhs_ammo_maaws_HE: RocketBase
-    {
-        ace_frag_enabled = 1;
-        ace_frag_metal = 2300;
-        ace_frag_charge = 590;
-        ace_frag_gurney_c = 2800;
-        ace_frag_gurney_k = "1/2";
-        ace_frag_classes[] = {"ACE_frag_medium_HD"};
-        ace_frag_skip = 0;
-        ace_frag_force = 1;
-    };
-    class rhs_ammo_maaws_HEDP: RocketBase
-    {
-        ace_frag_enabled = 1;
-        ace_frag_metal = 330;
-        ace_frag_charge = 280;
-        ace_frag_gurney_c = 2800;
-        ace_frag_gurney_k = "3/5";
-        ace_frag_classes[] = {"ACE_frag_medium_HD"};
-        ace_frag_skip = 0;
-        ace_frag_force = 1;
+        EGVAR(vehicle_damage,incendiary) = 0.8;
     };
 
     // ACE Explosives
