@@ -83,12 +83,7 @@ if (
     // DestructWreck is typically found on Aircraft/Heavy vehicles, DestructDefault is typically found on cars & boats.
     private _lethality = [1.25, 2] select (_destrType == "DestructWreck");
     // Focus damage on chest & head for increased lethality
-    private _damageSelectionArray = [
-        HITPOINT_INDEX_HEAD, 5, HITPOINT_INDEX_BODY, 3, HITPOINT_INDEX_LARM, 1,
-        HITPOINT_INDEX_RARM, 1, HITPOINT_INDEX_LLEG, 1, HITPOINT_INDEX_RLEG, 1
-    ];
-
-    [QEGVAR(medical,woundReceived), [_unit, "Body", _newDamage * _lethality, _shooter, _ammo, _damageSelectionArray]] call CBA_fnc_localEvent;
+    [QEGVAR(medical,woundReceived), [_unit, [[_newDamage * _lethality, "Body", _newDamage * _lethality]], _shooter, _ammo]] call CBA_fnc_localEvent;
     // Set crew on fire
     if (["ace_fire"] call EFUNC(common,isModLoaded)) then {
         [QEGVAR(fire,burn), [_unit, 5 * _newDamage, _shooter]] call CBA_fnc_globalEvent;
