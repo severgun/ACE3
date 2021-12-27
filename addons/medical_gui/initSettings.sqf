@@ -108,3 +108,11 @@ private _categoryColors = [ELSTRING(medical,Category), format ["| %1 |", LELSTRI
         false // isGlobal
     ] call CBA_fnc_addSetting;
 } forEach _damageColors;
+
+[
+    QGVAR(showBloodlossEntry),
+    "CHECKBOX",
+    [LSTRING(ShowBloodlossEntry_DisplayName), LSTRING(ShowBloodlossEntry_Description)],
+    [ELSTRING(medical,Category), LSTRING(SubCategory)],
+    true
+] call CBA_fnc_addSetting;

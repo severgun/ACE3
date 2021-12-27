@@ -1198,5 +1198,13 @@
             <Polish>Obrażenia - kolor %1</Polish>
             <Chinesesimp>负伤颜色 %1</Chinesesimp>
         </Key>
+        <Key ID="STR_ACE_Medical_GUI_ShowBloodEntry_DisplayName">
+            <English>Show Blood Loss</English>
+            <German>Blutverlust anzeigen</German>
+        </Key>
+        <Key ID="STR_ACE_Medical_GUI_ShowBloodlossEntry_Description">
+            <English>Show blood loss in the injury list.</English>
+            <German>Blutverlust in der Verletzungsliste anzeigen.</German>
+        </Key>
     </Package>
 </Project>
