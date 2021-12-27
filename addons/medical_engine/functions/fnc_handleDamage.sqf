@@ -70,25 +70,17 @@ if (
     0
 };
 
-// Being inside an exploding vehicle doesn't fire the EH for each hitpoint so the "ace_hdbracket" code never runs
-// _ammo is always "FuelExplosion", EH fires for each explosion. Damage is dependent on amount of fuel remaining in the vehicle
+// WOG fix
 if (
-    _hitPoint isEqualTo "#structural" &&
-    {_vehicle != _unit} &&
-    {_ammo isEqualTo "FuelExplosion"}
+    !alive _vehicle &&
+    {_vehicle != _unit} && {!(_vehicle isKindOf "StaticWeapon")}
 ) exitWith {
-    private _destrType = getText (configOf _vehicle >> "destrType");
-    // Skip vehicles that don't explode
-    if (_destrType == "") exitWith {};
-    // DestructWreck is typically found on Aircraft/Heavy vehicles, DestructDefault is typically found on cars & boats.
-    private _lethality = [1.25, 2] select (_destrType == "DestructWreck");
-    // Focus damage on chest & head for increased lethality
-    [QEGVAR(medical,woundReceived), [_unit, [[_newDamage * _lethality, "Body", _newDamage * _lethality]], _shooter, _ammo]] call CBA_fnc_localEvent;
-    // Set crew on fire
-    if (["ace_fire"] call EFUNC(common,isModLoaded)) then {
-        [QEGVAR(fire,burn), [_unit, 5 * _newDamage, _shooter]] call CBA_fnc_globalEvent;
-    };
-    TRACE_5("Vehicle Destroyed",_unit,_shooter,_instigator,_damage,_newDamage);
+    private _damageSelectionArray = [
+        HITPOINT_INDEX_HEAD, 1, HITPOINT_INDEX_BODY, 1, HITPOINT_INDEX_LARM, 1,
+        HITPOINT_INDEX_RARM, 1, HITPOINT_INDEX_LLEG, 1, HITPOINT_INDEX_RLEG, 1
+    ];
+    [QEGVAR(medical,woundReceived), [_unit, [[1, "Head", 5]], _shooter, "#bullet"]] call CBA_fnc_localEvent;
+    // TRACE_5("Crash",_unit,_shooter,_instigator,_damage,_newDamage);
 
     0
 };
