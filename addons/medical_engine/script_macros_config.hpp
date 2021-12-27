@@ -31,7 +31,7 @@
         name = "hand_l";\
         passThrough = 1;\
         radius = 0.08;\
-        explosionShielding = 1;\
+        explosionShielding = 0;\
         visual = "injury_hands";\
         minimalHit = 0.01;\
     };\
@@ -44,7 +44,7 @@
         name = "leg_l";\
         passThrough = 1;\
         radius = 0.1;\
-        explosionShielding = 1;\
+        explosionShielding = 0;\
         visual = "injury_legs";\
         minimalHit = 0.01;\
     };\
@@ -57,7 +57,7 @@
         name = "head";\
         passThrough = 0;\
         radius = 1;\
-        explosionShielding = 1;\
+        explosionShielding = 6;\
         visual = "";\
         minimalHit = 0;\
         depends = "HitHead";\

@@ -131,8 +131,8 @@ if (_hitPoint isEqualTo "ace_hdbracket") exitWith {
             */
             if (_shooter == _unit && {(velocity _unit select 2) < -2}) then {
                 _ammo = "falling"; // non-selectionSpecific so only _damageSelectionArray matters
-                _damageSelectionArray = [HITPOINT_INDEX_RLEG, 1, HITPOINT_INDEX_LLEG, 1];
-                TRACE_5("Fall",_unit,_shooter,_instigator,_damage,_receivedDamage);
+                _damageSelectionArray = [HITPOINT_INDEX_RLEG, _receivedDamage*1.5, HITPOINT_INDEX_LLEG, _receivedDamage*1.5];
+                TRACE_6("Fall",_unit,_shooter,_instigator,_damage,_receivedDamage,_damageSelectionArray);
             } else {
                 _damageSelectionArray = [HITPOINT_INDEX_RARM, 1, HITPOINT_INDEX_LARM, 1, HITPOINT_INDEX_LLEG, 1, HITPOINT_INDEX_RLEG, 1];
                 TRACE_5("Collision",_unit,_shooter,_instigator,_damage,_receivedDamage);
@@ -141,12 +141,15 @@ if (_hitPoint isEqualTo "ace_hdbracket") exitWith {
             // Significant damage suggests high relative velocity
             // Momentum transfers to body/head for worse wounding
             // Higher momentum results in higher chance for head to be hit for more lethality
-            if (_receivedDamage > 0.35) then {
-                private _headHitWeight = (_receivedDamage / 2) min 1;
-                if (_receivedDamage < 0.6) then {
-                    _damageSelectionArray append [0, (1 - _headHitWeight), 1, _headHitWeight];
+            if (_receivedDamage > 0.45) then {
+                //private _headHitWeight = (_receivedDamage / 2) min 1;
+                private _headHitWeight = _receivedDamage min 1.5;
+                if (_receivedDamage < 0.7) then {
+                    _damageSelectionArray append [HITPOINT_INDEX_HEAD, (1 - _headHitWeight), HITPOINT_INDEX_BODY, _headHitWeight];
                 } else {
-                    _damageSelectionArray = [0, (1 - _headHitWeight), 1, _headHitWeight];
+                    //_damageSelectionArray = [0, (1 - _headHitWeight), 1, _headHitWeight];
+                    _damageSelectionArray append [HITPOINT_INDEX_HEAD, _headHitWeight, HITPOINT_INDEX_BODY, _headHitWeight];
+                    TRACE_3("falldamage_big",_receivedDamage,_headHitWeight,_damageSelectionArray);	
                 }
             };
         } else {
