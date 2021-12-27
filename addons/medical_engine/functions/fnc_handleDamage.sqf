@@ -151,12 +151,8 @@ if (_hitPoint isEqualTo "ace_hdbracket") exitWith {
             };
         } else {
             // Anything else is almost guaranteed to be fire damage
-            // Common burn areas are the hands and face https://www.ncbi.nlm.nih.gov/pubmed/16899341/
-            _damageSelectionArray = [
-                HITPOINT_INDEX_HEAD, 0.77, HITPOINT_INDEX_BODY, 0.5, HITPOINT_INDEX_LARM, 0.8,
-                HITPOINT_INDEX_RARM, 0.8, HITPOINT_INDEX_LLEG, 0.3, HITPOINT_INDEX_RLEG, 0.3
-            ];
-            _ammo = "burn"; // non-selectionSpecific so only _damageSelectionArray matters
+            _damageSelectionArray = [HITPOINT_INDEX_BODY, 1, HITPOINT_INDEX_LLEG, 1, HITPOINT_INDEX_RLEG, 1];;
+            _ammo = "unknown"; // non-selectionSpecific so only _damageSelectionArray matters
 
             // Fire damage can occur as lots of minor damage events
             // Combine these until significant enough to wound
@@ -168,12 +164,6 @@ if (_hitPoint isEqualTo "ace_hdbracket") exitWith {
             } else {
                 _unit setVariable [QGVAR(trivialDamage), _combinedDamage];
                 _receivedDamage = 0;
-            };
-
-            // Leave fire handling to fire component if it's enabled
-            // Burn intensity works on 1-10 scale, scale down to 3/4 because humans aren't made out of gasoline
-            if (missionNamespace getVariable [QEGVAR(fire,enabled), false]) exitWith {
-                [QEGVAR(fire,burn), [_unit, _receivedDamage * 7.5]] call CBA_fnc_globalEvent;
             };
         };
     };
