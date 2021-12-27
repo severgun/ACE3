@@ -46,6 +46,16 @@ if (currentWeapon _unit != primaryWeapon _unit) then {
     _unit selectWeapon primaryWeapon _unit;
 };
 
+if (GVAR(dropWeaponOnUnconscious) != 0) then {
+    if (_unit == ACE_player) then {
+        if (_knockOut) then {
+            if (random 1 <= GVAR(dropWeaponOnUnconscious)) then {
+                ACE_player call EFUNC(hitreactions,throwWeapon);
+            };
+        };
+    };
+};
+
 if (_knockOut) then {
     if (_minWaitingTime > 0) then {
         if (_forcedWakup) then {

@@ -30,6 +30,15 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(dropWeaponOnUnconscious),
+    "SLIDER",
+    [LSTRING(EnableDropWeaponOnUnconscious_DisplayName), LSTRING(EnableDropWeaponOnUnconscious_Description)],
+    LSTRING(Category),
+    [0, 1, 0, 2, true],
+    true
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(spontaneousWakeUpChance),
     "SLIDER",
     [LSTRING(SpontaneousWakeUpChance_DisplayName), LSTRING(SpontaneousWakeUpChance_Description)],
