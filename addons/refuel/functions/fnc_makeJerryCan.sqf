@@ -27,6 +27,7 @@ if (isServer) then {
 };
 _target setVariable [QGVAR(jerryCan), true];
 _target setVariable [QGVAR(source), _target];
+_target setVariable [QGVAR(capacity), _fuelAmount];
 
 // Main Action
 private _action = [QGVAR(Refuel),
@@ -64,6 +65,18 @@ _action = [QGVAR(TurnOn),
     REFUEL_ACTION_DISTANCE] call EFUNC(interact_menu,createAction);
 [_target, 0, ["ACE_MainActions", QGVAR(Refuel)], _action] call EFUNC(interact_menu,addActionToObject);
 
+// Add turnOn container
+_action = [QGVAR(TurnOn_Container),
+    localize LSTRING(TurnOn_Container),
+    QPATHTOF(ui\icon_refuel_interact.paa),
+    {[_player, _target, true] call FUNC(turnOn)},
+    {[_player, _target, true] call FUNC(canTurnOn)},
+    {},
+    [],
+    [0, 0, 0],
+    REFUEL_ACTION_DISTANCE] call EFUNC(interact_menu,createAction);
+[_target, 0, ["ACE_MainActions", QGVAR(Refuel)], _action] call EFUNC(interact_menu,addActionToObject);
+
 // Add turnOff
 _action = [QGVAR(TurnOff),
     localize LSTRING(TurnOff),
@@ -86,4 +99,15 @@ _action = [QGVAR(Disconnect),
     [],
     [0, 0, 0],
     REFUEL_ACTION_DISTANCE] call EFUNC(interact_menu,createAction);
+[_target, 0, ["ACE_MainActions", QGVAR(Refuel)], _action] call EFUNC(interact_menu,addActionToObject);
+
+// Add check fuel
+_action = [QGVAR(CheckFuel),
+        localize LSTRING(CheckFuel),
+        QPATHTOF(ui\icon_refuel_interact.paa),
+        {[_player, _target] call FUNC(checkFuel)},
+        {[_player, _target] call FUNC(canCheckFuel)},
+        {}, [], [0,0,0],
+        REFUEL_ACTION_DISTANCE
+] call EFUNC(interact_menu,createAction);
 [_target, 0, ["ACE_MainActions", QGVAR(Refuel)], _action] call EFUNC(interact_menu,addActionToObject);
