@@ -50,6 +50,17 @@ if (
     0
 };
 
+private _wog_caliber = getNumber (configFile >> "CfgAmmo" >> _ammo >> "caliber");
+if (
+    _hitPoint isEqualTo "#structural" &&
+    {_wog_caliber > 1.8} && {_newDamage > 0.05}
+) exitWith {
+    TRACE_3("wog_damage",_hitPoint,_wog_caliber,_newDamage);
+    [QEGVAR(medical,woundReceived), [_unit, [[3, "Body", 3]], _shooter, "rhs_ammo_145x115mm"]] call CBA_fnc_localEvent;
+    0
+};
+
+
 // Crashing a vehicle doesn't fire the EH for each hitpoint so the "ace_hdbracket" code never runs
 // It does fire the EH multiple times, but this seems to scale with the intensity of the crash
 private _vehicle = vehicle _unit;

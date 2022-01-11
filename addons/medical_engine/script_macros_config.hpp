@@ -29,6 +29,7 @@
 // but has the same selection as the first one (always "HitHead" for soldiers).
 #define ADD_ACE_HITPOINTS\
     class HitLeftArm: HitHands {\
+		armor = 0.9;\
         material = -1;\
         name = "hand_l";\
         radius = 0.08;\
@@ -39,6 +40,7 @@
         name = "hand_r";\
     };\
     class HitLeftLeg: HitLegs {\
+		armor = 0.9;\
         material = -1;\
         name = "leg_l";\
         radius = 0.1;\

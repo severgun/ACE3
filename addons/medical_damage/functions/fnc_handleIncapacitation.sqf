@@ -41,8 +41,8 @@ if ((_headDamage > _damageThreshold / 2) ||
     {_bodyDamage > _damageThreshold} ||
     {_leftArmDamage > _damageThreshold * 3} ||
     {_rightArmDamage > _damageThreshold * 3} ||
-    {_leftLegDamage > _damageThreshold * 4} ||
-    {_rightLegDamage > _damageThreshold * 4} ||
+    {_leftLegDamage > _damageThreshold * 2} ||
+    {_rightLegDamage > _damageThreshold * 2} ||
     {(_painLevel >= PAIN_UNCONSCIOUS) && {random 1 < EGVAR(medical,painUnconsciousChance)}}) then {
         [QEGVAR(medical,CriticalInjury), _unit] call CBA_fnc_localEvent;
 };

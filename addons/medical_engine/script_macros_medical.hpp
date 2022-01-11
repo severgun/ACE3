@@ -25,7 +25,7 @@
 // Chance to hit heart based on ratio of 70kg (approx. 70L) body to 70mL stroke volume of heart
 // Assuming torso is 50% of the body volume (35L)
 #define HEART_HIT_CHANCE EGVAR(medical,const_heartHitChance)
-#define HEART_HIT_CHANCE_DEFAULT 0.05
+#define HEART_HIT_CHANCE_DEFAULT 0.06
 
 #define MEDICAL_ACTION_DISTANCE 1.75
 
@@ -60,7 +60,7 @@
 
 // Minimum amount of damage required for penetrating wounds (also minDamage for velocity wounds)
 #define PENETRATION_THRESHOLD EGVAR(medical,const_penetrationThreshold)
-#define PENETRATION_THRESHOLD_DEFAULT 0.35
+#define PENETRATION_THRESHOLD_DEFAULT 0.1
 
 // To be replaced by a proper blood pressure calculation
 #define BLOOD_LOSS_KNOCK_OUT_THRESHOLD EGVAR(medical,const_bloodLossKnockOutThreshold)
@@ -74,7 +74,7 @@
 
 // --- pain
 #define PAIN_UNCONSCIOUS EGVAR(medical,const_painUnconscious)
-#define PAIN_UNCONSCIOUS_DEFAULT 0.5
+#define PAIN_UNCONSCIOUS_DEFAULT 0.2
 
 // Pain fade out time (time it takes until pain is guaranteed to be completly gone)
 #define PAIN_FADE_TIME EGVAR(medical,const_painFadeTime)
