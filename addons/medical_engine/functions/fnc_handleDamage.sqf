@@ -79,7 +79,7 @@ if (
         HITPOINT_INDEX_HEAD, 1, HITPOINT_INDEX_BODY, 1, HITPOINT_INDEX_LARM, 1,
         HITPOINT_INDEX_RARM, 1, HITPOINT_INDEX_LLEG, 1, HITPOINT_INDEX_RLEG, 1
     ];
-    [QEGVAR(medical,woundReceived), [_unit, [[1, "Head", 5]], _shooter, "#bullet"]] call CBA_fnc_localEvent;
+    [QEGVAR(medical,woundReceived), [_unit, [[5, "Head", 5]], _shooter, "#bullet"]] call CBA_fnc_localEvent;
     // TRACE_5("Crash",_unit,_shooter,_instigator,_damage,_newDamage);
 
     0
