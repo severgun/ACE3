@@ -20,7 +20,8 @@
 
 params ["_unit", "_part", "_bodyPartDamage", "_woundDamage"];
 
-if (_part > 1) exitWith { false };
+//[WOG] Allow to check if legs or arms hit is fatal
+//if (_part > 1) exitWith { false };
 
 scopeName "main";
 
@@ -56,7 +57,7 @@ if (EGVAR(medical,fatalDamageSource) in [1, 2]) then {
         true breakOut "main";
     };
 
-    if (_limbsSumDamage > 5) exitWith {
+    if (_leftArmDamage > 7 || _rightArmDamage > 7 || _leftLegDamage > 7 || _rightLegDamage > 7) exitWith {
         TRACE_5("determineIfFatal: lethal limb trauma",_limbsSumDamage,_leftArmDamage,_rightArmDamage,_leftLegDamage,_rightLegDamage);
         true breakOut "main";
     };
