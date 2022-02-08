@@ -60,7 +60,7 @@
 
 // Minimum amount of damage required for penetrating wounds (also minDamage for velocity wounds)
 #define PENETRATION_THRESHOLD EGVAR(medical,const_penetrationThreshold)
-#define PENETRATION_THRESHOLD_DEFAULT 0.1
+#define PENETRATION_THRESHOLD_DEFAULT 0.15
 
 // To be replaced by a proper blood pressure calculation
 #define BLOOD_LOSS_KNOCK_OUT_THRESHOLD EGVAR(medical,const_bloodLossKnockOutThreshold)
@@ -74,7 +74,7 @@
 
 // --- pain
 #define PAIN_UNCONSCIOUS EGVAR(medical,const_painUnconscious)
-#define PAIN_UNCONSCIOUS_DEFAULT 0.2
+#define PAIN_UNCONSCIOUS_DEFAULT 0.5
 
 // Pain fade out time (time it takes until pain is guaranteed to be completly gone)
 #define PAIN_FADE_TIME EGVAR(medical,const_painFadeTime)
