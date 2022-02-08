@@ -84,10 +84,6 @@ if (
     !alive _vehicle &&
     {_vehicle != _unit} && {!(_vehicle isKindOf "StaticWeapon")}
 ) exitWith {
-    private _damageSelectionArray = [
-        HITPOINT_INDEX_HEAD, 1, HITPOINT_INDEX_BODY, 1, HITPOINT_INDEX_LARM, 1,
-        HITPOINT_INDEX_RARM, 1, HITPOINT_INDEX_LLEG, 1, HITPOINT_INDEX_RLEG, 1
-    ];
     [QEGVAR(medical,woundReceived), [_unit, [[5, "Head", 5]], _shooter, "#bullet"]] call CBA_fnc_localEvent;
     // TRACE_5("Crash",_unit,_shooter,_instigator,_damage,_newDamage);
 
