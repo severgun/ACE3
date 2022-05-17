@@ -1232,5 +1232,15 @@
             <English>Show qualitative blood loss in the injury list.</English>
             <German>Qualitativen Blutverlust in der Verletzungsliste anzeigen.</German>
         </Key>
+        <Key ID="STR_ACE_Medical_GUI_showDamageEntry_DisplayName">
+            <English>Show Damage Taken</English>
+        </Key>
+        <Key ID="STR_ACE_Medical_GUI_showDamageEntry_Description">
+            <English>Show Damage Taken in the injury list.</English>
+        </Key>
+        <Key ID="STR_ACE_Medical_GUI_DamageToolTip">
+            <English>Damage: %1%2</English>
+            <Portuguese>Dano: %1%2</Portuguese>
+        </Key>
     </Package>
 </Project>
