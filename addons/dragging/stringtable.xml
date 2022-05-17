@@ -147,5 +147,17 @@
             <Chinesesimp>允许玩家在拖动时开火。</Chinesesimp>
             <Korean>플레이어가 무기를 끄는 동안에 무기를 사용할 수 있게합니다.</Korean>
         </Key>
+        <Key ID="STR_ACE_Dragging_maxWeightDrag_DisplayName">
+            <English>Max dragging weight</English>
+        </Key>
+        <Key ID="STR_ACE_Dragging_maxWeightDrag_Description">
+            <English>Max weight for draggable objects. Value is measured in 0.1lb (0.045kg). Set to -1 for no limit.</English>
+        </Key>
+        <Key ID="STR_ACE_Dragging_maxWeightCarry_DisplayName">
+            <English>Max carrying weight</English>
+        </Key>
+        <Key ID="STR_ACE_Dragging_maxWeightCarry_Description">
+            <English>Max weight for carryable objects. Value is measured in 0.1lb (0.045kg). Set to -1 for no limit.</English>
+        </Key>
     </Package>
 </Project>
